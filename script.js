@@ -17,7 +17,24 @@ window.addEventListener("scroll", () => {
 const searchInput = document.getElementById("searchInput");
 const searchBtn = document.getElementById("searchBtn");
 
+// -------------------- FAVOURITE FUNCTION --------------------
 
+function toggleFavorite(el) {
+  el.classList.toggle('active');
+  el.textContent = el.classList.contains('active') ? '★' : '☆';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.bingkaigambar').forEach(imgBox => {
+    if (!imgBox.querySelector('.fav-icon')) {
+      const star = document.createElement('div');
+      star.className = 'fav-icon';
+      star.textContent = '☆';
+      star.onclick = function() { toggleFavorite(star); };
+      imgBox.appendChild(star);
+    }
+  });
+});
 
 // -------------------- TOGGLE DESKRIPSI --------------------
 
