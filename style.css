@@ -1,0 +1,747 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(to top, black, #c74949, black);
+    margin: 0;
+}
+
+.navbar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: transparent;
+    transition: transform 0.3s ease;
+}
+
+.navbar.hidden {
+    transform: translateY(-100%);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.logo img {
+    width: 100px;
+    height: 100px;
+}
+
+.links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.links a {
+    position: relative;
+    font-size: 1.1rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.links a::before {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: 0.3s ease;
+}
+
+.links a:hover::before {
+    width: 100%;
+}
+
+/*    <!-- Beranda -->    */
+
+.beranda {
+    height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+section#beranda{
+    box-sizing: border-box;
+    padding: 5rem 20rem; 
+}
+
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.beranda::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+    z-index: 0;
+}
+
+.berandatext {
+    position: relative;
+    top: 21%;
+    left: -110px;
+}
+
+.berandatext h5 {
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    color: white;
+}
+
+.berandatext h1 {
+    font-size: 6rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.berandatext span {
+    color: #c74949;
+    text-shadow: 0 0 10px white;
+}
+
+.berandatext p {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 30px;
+    margin-bottom: 35px;
+    color: white;
+}
+
+.kananbawah {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    gap: 30px;
+    z-index: 2;
+}
+
+.fotokananbawah {
+    text-align: center;
+    color: white;
+}
+
+.fotokananbawah img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.5s;
+    cursor: pointer;
+}
+
+.fotokananbawah img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px white;
+}
+
+.fotokananbawah p {
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/*    <!-- Tentang Kami -->    */
+
+.tentangkami {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), 
+                url("images/backgroundtentangkami.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    width: 100%;
+    background-attachment: fixed;
+    box-sizing: border-box;
+    padding-top: 5rem;
+    padding: 5rem 0;
+    display: flex;
+    align-items: flex-start;
+}
+
+.isitentangkami {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.tentangkamitext h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.tentangkamitext span {
+    color: #c74949;
+    text-shadow: 0 0 10px white;
+}
+
+.deskripsitentang {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 30px;
+    margin-bottom: 35px;
+    color: white;
+    max-width: 1000px;
+}
+
+.tombolsearch {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tombolsearch input {
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    border: black 2px solid;
+    outline: none;
+    width: 30%;
+    font-size: 1rem;
+}
+
+.tombolsearch button {
+    padding: 0.7rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    background: white;
+    border: black 2px solid;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tombolsearch button:hover {
+  background: #c74949;
+}
+
+#searchResults {
+  margin: 2rem auto;
+  background: rgba(255,255,255,0.95);
+  border-radius: 10px;
+  padding: 1.2rem;
+  width: 50%;
+  border: 2px solid black;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.result-item {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.result-item:last-child {
+  border-bottom: none;
+}
+
+.result-item strong {
+  color: #c74949;
+}
+
+.result-item img {
+  display: block;
+  margin-top: 8px;
+  border-radius: 8px;
+  width: 100px;
+}
+
+/*    <!-- Maluku -->    */
+
+.maluku {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), 
+                url("images/backgroundmaluku.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 150vh;
+    height: auto;
+    background-attachment: fixed;
+    box-sizing: border-box;
+    padding-bottom: 5rem;
+}
+
+.isimaluku {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.subplotmaluku {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.line-3 {
+    flex: 1;
+    height: 0.3rem;
+    background-color: white;
+}
+
+.tulisanmaluku h1 {
+    margin: 0;
+    color: white;
+    text-shadow: 0 0 10px #c74949;
+}
+
+.daftaralatmusik {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.alatmusik {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s;
+}
+
+.alatmusik:hover {
+    transform: translateY(-5px);
+}
+
+.bingkaigambar img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    transition: 0.35s ease;
+}
+
+.bingkaigambar img:hover {
+    transform: scale(1.18);
+    box-shadow: 0 15px 30px black;
+}
+
+.infoalat {
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+.infoalat h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #c74949;
+}
+
+.infoalat h4 {
+    margin: 0.3rem 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.infoalat p {
+    font-size: 13px;
+}
+
+.infoalat .deskripsi {
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+    max-height: 3.6em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    transition: all 0.3s ease;
+}
+
+.infoalat .deskripsi.aktif {
+    max-height: 500px;
+    -webkit-line-clamp: unset;
+}
+
+.toggle-btn {
+    border: none;
+    background: none;
+    color: #c74949;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 0;
+}
+.toggle-btn:hover {
+    text-decoration: underline;
+}
+
+/*    <!-- Biar ada space -->    */
+
+.kosong {
+    width: 100%;
+    height: 100px; 
+}
+
+/*    <!-- Papua -->    */
+
+.papua {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), 
+                url("images/backgroundmaluku.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 150vh;
+    height: auto;
+    background-attachment: fixed;
+    box-sizing: border-box;
+    padding-bottom: 5rem;
+}
+
+.isipapua {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.subplotpapua {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.tulisanpapua h1 {
+    margin: 0;
+    color: white;
+    text-shadow: 0 0 10px #c74949;
+}
+
+/*    <!-- Sulawesi -->    */
+
+.sulawesi {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), 
+                url("images/backgroundmaluku.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 150vh;
+    height: auto;
+    background-attachment: fixed;
+    box-sizing: border-box;
+    padding-bottom: 5rem;
+}
+
+.isisulawesi {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.subplotsulawesi {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.tulisansulawesi h1 {
+    margin: 0;
+    color: white;
+    text-shadow: 0 0 10px #c74949;
+}
+
+/*    <!-- Nusa Tenggara -->    */
+
+.nusatenggara {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), 
+                url("images/backgroundmaluku.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 150vh;
+    height: auto;
+    background-attachment: fixed;
+    box-sizing: border-box;
+    padding-bottom: 5rem;
+}
+
+.isinusatenggara {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.subplotnusatenggara {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.tulisannusatenggara h1 {
+    margin: 0;
+    color: white;
+    text-shadow: 0 0 10px #c74949;
+}
+
+/*    <!-- Hubungi Kami -->    */
+
+.hubungikami {
+    padding: 70px 17% 70px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+    color: white;
+    text-align: center;
+}
+
+.hubungikami h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hubungikami p {
+    margin-bottom: 40px;
+}
+
+.box {
+    position: relative;
+    width: 280px;
+    height: 80px;
+    margin: 0 auto;
+    border-radius: 20px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #c74949, white, #c74949);
+    animation: rotateBorder 5s linear infinite;
+    z-index: -1;
+}
+
+.box::after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    background: rgba(20,20,20,0.9);
+    border-radius: 15px;
+    border: 1px solid #25252b;
+    z-index: -1;
+}
+
+@keyframes rotateBorder {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.form-hubungi {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    width: 90%;
+    text-align: center;
+    color: black;
+}
+
+.form-hubungi input,
+.form-hubungi textarea,
+.form-hubungi button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid black;
+    outline: none;
+    font-size: 0.9rem;
+}
+
+.form-hubungi button {
+    background: #c74949;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    border: none;
+}
+.form-hubungi button:hover {
+    background: black;
+    color: white;
+}
+
+.box.active {
+    width: 400px;
+    height: 450px;
+    cursor: default;
+}
+
+.box.active .form-hubungi {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/*    <!-- Footer Bawah -->    */
+
+.footer {
+    width: 100%;
+    padding: 2rem 5%;
+    background-color: white;
+    color: black;
+}
+
+.footerbawah {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footerkiri, .footerkanan {
+    flex: 1 1 200px;
+}
+
+.footerkanan {
+    text-align: right;
+}
+
+.footertitle h1 {
+    font-size: 50px;
+    margin-bottom: -10px;
+}
+
+.footertitle p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.footerbagiankiri {
+    display: flex;
+    gap: 0.8rem;
+    list-style: none;
+    padding: 0;
+}
+
+.footerbagiankiri li a ion-icon {
+    color: black;
+    font-size: 30px;
+    transition: 0.3s;
+}
+
+.footerbagiankiri li a ion-icon:hover {
+    color: #c74949;
+}
+
+.footerkanan ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footerkanan ul li {
+    margin-bottom: 5px;
+}
+
+.footerkanan ul li a {
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+}
+
+.footerkanan ul li a:hover {
+    color: #c74949;
+    text-decoration: underline;
+}
+
+#keatas {
+    background: none;
+    border: 1px solid black;
+    color: black;
+    padding: 3px 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 0.8rem;
+}
+
+#keatas:hover {
+    background: #c74949;
+    border-color: white;
+    color: black;
+}
+
+/*    <!-- Copyright -->    */
+
+.copyright {
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 0.5rem 0;
+    color: white;
+}
