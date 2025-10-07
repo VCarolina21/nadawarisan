@@ -17,22 +17,7 @@ window.addEventListener("scroll", () => {
 const searchInput = document.getElementById("searchInput");
 const searchBtn = document.getElementById("searchBtn");
 
-if (searchInput && searchBtn) {
 
-  searchBtn.addEventListener("click", () => {
-    const keyword = searchInput.value.trim();
-    if (keyword) {
-      window.location.href = `search.html?q=${encodeURIComponent(keyword)}`;
-    }
-  });
-
-  searchInput.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      searchBtn.click();
-    }
-  });
-}
 
 // -------------------- TOGGLE DESKRIPSI --------------------
 
