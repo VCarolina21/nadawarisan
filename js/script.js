@@ -41,30 +41,32 @@ function renderAlatMusik(region, containerId) {
         const deskripsiPenuh = alat.deskripsi;
         const deskripsiSingkat = deskripsiPenuh.substring(0, 150) + '...';
 
-        const isFavOnLoad = isFavorite(alat);
-        const favIconContent = isFavOnLoad ? '★' : '☆';
-        const favIconClass = isFavOnLoad ? 'fav-icon active' : 'fav-icon';
-
         const card = document.createElement('div');
         card.className = 'bingkaigambar';
         card.dataset.nama = alat.nama;
         card.dataset.asal = alat.asal; 
         
         card.innerHTML = `
-            <img src="../${alat.gambar}" alt="${alat.nama}">
+            <img src="${alat.gambar}" alt="${alat.nama}">
             <div class="ketgambar">
                 <h3>${alat.nama}</h3>
                 <h4>Asal: ${alat.asal}</h4>
                 <p class="deskripsi-text">${deskripsiPenuh}</p>
                 <button class="toggle-btn">Lihat selengkapnya</button>
             </div>
-            <div class="${favIconClass}">${favIconContent}</div>
         `;
         
-        const star = card.querySelector('.fav-icon');
-        star.onclick = function() { 
+        const star = document.createElement('div');
+        const isFav = isFavorite(alat);
+        
+        star.className = isFav ? 'fav-icon active' : 'fav-icon';
+        star.textContent = isFav ? '★' : '☆';
+        
+        star.onclick = function() {
             handleToggleFavorite(star, alat); 
         };
+        
+        card.appendChild(star);
 
         const btn = card.querySelector(".toggle-btn");
         const deskripsi = card.querySelector(".deskripsi-text");
@@ -73,12 +75,10 @@ function renderAlatMusik(region, containerId) {
             deskripsi.textContent = deskripsiSingkat;
             btn.textContent = "Lihat selengkapnya";
         } else {
-
             btn.style.display = 'none';
         }
         
         btn.addEventListener("click", () => {
-
             deskripsi.classList.toggle("aktif"); 
             
             if (deskripsi.classList.contains("aktif")) {
@@ -97,15 +97,13 @@ function renderAlatMusik(region, containerId) {
 // -------------------- DOMContentLoaded MAIN LOGIC --------------------
 
 document.addEventListener('DOMContentLoaded', () => {
-
     renderAlatMusik('Maluku', 'daftar-maluku');
     renderAlatMusik('Papua', 'daftar-papua');
     renderAlatMusik('NT', 'daftar-nt'); 
     renderAlatMusik('Sulawesi', 'daftar-sulawesi');
-
 });
 
-// -------------------- TOMBOL KE ATAS (Kode Asli Anda) --------------------
+// -------------------- TOMBOL KE ATAS --------------------
 
 const tombolKeAtas = document.getElementById("keatas");
 if (tombolKeAtas) {

@@ -520,7 +520,7 @@ const alatmusik = [
       }
 ]
 
-const FAVORITES_KEY = 'favorites';
+const FAVORITES_KEY = 'favorites'; 
 
 function generateUniqueKey(alat) {
     if (!alat || !alat.nama || !alat.asal) return null;
@@ -553,8 +553,13 @@ function toggleFavorite(alat) {
 
 function isFavorite(alat) {
     const uniqueKey = generateUniqueKey(alat);
-    if (!uniqueKey) return false;
-    
-    const favorites = JSON.parse(localStorage.getItem(FAVORITES_KEY)) || [];
+    let favorites = JSON.parse(localStorage.getItem(FAVORITES_KEY)) || [];
     return favorites.some(fav => fav.uniqueKey === uniqueKey);
+}
+
+function handleToggleFavorite(el, alatData) {
+    const isNowFavorite = toggleFavorite(alatData); 
+    
+    el.textContent = isNowFavorite ? '★' : '☆';
+    el.classList.toggle('active', isNowFavorite);
 }

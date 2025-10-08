@@ -1,13 +1,19 @@
 const FAVORITES_KEY = 'favorites'; 
 
+console.log('Favorites loaded!')
+
 function renderFavorites() {
     const container = document.getElementById('favorit-container');
     const pesanKosong = document.getElementById('pesan-kosong');
     
+    if (!container || !pesanKosong) {
+        console.warn('Elemen container favorit tidak ditemukan di halaman.');
+        return;
+    }
+    
     const favorites = JSON.parse(localStorage.getItem(FAVORITES_KEY)) || [];
     
     const validFavorites = favorites.filter(alat => alat.uniqueKey && alat.nama && alat.gambar);
-    localStorage.setItem(FAVORITES_KEY, JSON.stringify(validFavorites));
 
     container.innerHTML = ''; 
 
@@ -16,6 +22,7 @@ function renderFavorites() {
         container.style.display = 'none';
     } else {
         pesanKosong.style.display = 'none';
+
         container.style.display = 'flex'; 
 
         validFavorites.forEach(alat => {
@@ -57,4 +64,6 @@ function setupUnfavoriteButtons(container) {
     });
 }
 
-document.addEventListener('DOMContentLoaded', renderFavorites);
+document.addEventListener("DOMContentLoaded", () => {
+    renderFavorites();
+});
