@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  
-  <title>Favorit Saya</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="../css/favorit.css">
+    <link rel="stylesheet" href="../css/favorit.css">
+
+    <title>Favorit Saya - Nada Warisan</title>
 </head>
 
 <body>
 
-  <h1>🎵 Favorit Saya</h1>
-  <div id="favoritesList" class="daftar-favorit"></div>
+    <div class="favorit-result-container">
+        <a href="../html/index.html" class="btn-kembali-favorit">← Kembali ke Beranda</a>
+        <h1 class="header-favorit">Alat Musik Favorit</h1>
+    </div>
+    
+    <div id="favorit-container" class="favorit-container"></div>
 
-  <a href="../html/index.html" class="btn-kembali">← Kembali</a>
-
-  <script src="../js/favorit.js"></script>
+    <div id="pesan-kosong" style="display: none;">
+        <p>Anda belum memiliki alat musik favorit.</p>
+    </div>
+    
+    <script src="../js/alatmusik.js"></script>
+    <script src="../js/favorit.js"></script>
 </body>
+
 </html>

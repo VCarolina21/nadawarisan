@@ -189,7 +189,7 @@ section#beranda{
 
 .tentangkami {
     background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), 
-                url("images/backgroundtentangkami.png");
+                url("../images/backgroundtentangkami.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -275,7 +275,7 @@ section#beranda{
 
 .maluku {
     background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), 
-                url("images/backgroundmaluku.png");
+                url("../images/backgroundmaluku.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -426,7 +426,7 @@ section#beranda{
 
 .papua {
     background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), 
-                url("images/backgroundmaluku.png");
+                url("../images/backgroundmaluku.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -462,7 +462,7 @@ section#beranda{
 
 .sulawesi {
     background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), 
-                url("images/backgroundmaluku.png");
+                url("../images/backgroundmaluku.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -498,7 +498,7 @@ section#beranda{
 
 .nusatenggara {
     background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), 
-                url("images/backgroundmaluku.png");
+                url("../images/backgroundmaluku.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
