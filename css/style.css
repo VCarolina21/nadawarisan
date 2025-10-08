@@ -185,6 +185,7 @@ section#beranda{
     font-size: 1rem;
     font-weight: 600;
 }
+
 /*    <!-- Tentang Kami -->    */
 
 .tentangkami {
@@ -271,263 +272,134 @@ section#beranda{
     border-color: #c74949;
 }
 
-/*    <!-- Maluku -->    */
+/*    <!-- Jeda -->    */
 
-.maluku {
-    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), 
+.kosong {
+    height: 10vh; 
+    width: 100%;
+    background: transparent;
+}
+
+/*    <!-- Maluku -->    */ /*    <!-- Papua-->    */ /*    <!-- Sulawesi -->    */ /*    <!-- NT -->    */
+
+.maluku, .papua, .nt, .sulawesi {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.8)), 
                 url("../images/backgroundmaluku.png");
-    background-size: cover;
+    background-size: auto;
     background-position: center;
     background-repeat: no-repeat;
     height: 150vh;
     height: auto;
     background-attachment: fixed;
     box-sizing: border-box;
-    padding-bottom: 5rem;
+    padding: 70px 0;
 }
 
-.isimaluku {
-    width: 90%;
+.isimaluku, .isipapua, .isint, .isilsulawesi {
+    max-width: none;
+    width: 80%;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
+    padding: 0 20px;
 }
 
-.subplotmaluku {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 3rem;
-    margin-bottom: 2rem;
-}
-
-.line-3 {
-    flex: 1;
-    height: 0.3rem;
-    background-color: white;
-}
-
-.tulisanmaluku h1 {
-    margin: 0;
-    color: white;
-    text-shadow: 0 0 10px #c74949;
+.tulisanmaluku h1, .tulisanpapua h1, .tulisant h1, .tulisansulawesi h1 {
+    color: #e6e6e6;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .daftaralatmusik {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-}
-
-.alatmusik {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.2s;
-}
-
-.alatmusik:hover {
-    transform: translateY(-5px);
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 20px 0;
 }
 
 .bingkaigambar {
-    position: relative;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative; 
 }
 
 .bingkaigambar img {
     width: 100%;
-    height: 180px;
+    height: 200px;
     object-fit: cover;
 }
 
-.infoalat {
-    padding: 1rem;
-    margin-bottom: 2rem;
+.ketgambar {
+    padding: 15px;
 }
 
-.infoalat h3 {
-    margin: 0;
-    font-size: 1.2rem;
-    color: #c74949;
+.ketgambar h3 {
+    color: #b73e3e;
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.4rem;
+    font-weight: bold
 }
 
-.infoalat h4 {
-    margin: 0.3rem 0;
+.ketgambar h4 {
+    color: black;
     font-size: 0.9rem;
-    color: #666;
+    font-style: italic;
+    margin-bottom: 10px;
 }
 
-.infoalat p {
-    font-size: 13px;
-}
-
-.infoalat .deskripsi {
-    font-size: 0.9rem;
-    color: #333;
-    margin-bottom: 0.5rem;
-    max-height: 3.6em;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    transition: all 0.3s ease;
-}
-
-.infoalat .deskripsi.aktif {
-    max-height: 500px;
-    -webkit-line-clamp: unset;
-}
-
-.toggle-btn {
-    border: none;
-    background: none;
-    color: #c74949;
-    font-size: 0.9rem;
-    cursor: pointer;
-    padding: 0;
-}
-.toggle-btn:hover {
-    text-decoration: underline;
+.ketgambar p {
+    color: #444;
+    font-size: 0.95rem;
+    line-height: 1.4;
 }
 
 .fav-icon {
     position: absolute;
-    top: 8px;
-    right: 8px;
-    font-size: 24px;
-    color: #ccc;
-    cursor: pointer;
-    user-select: none;
-    transition: color 0.3s ease, transform 0.2s ease;
+    top: 10px;
+    right: 10px;
     z-index: 10;
-}
-
-.fav-icon:hover {
-    transform: scale(1.2);
+    font-size: 2.5rem;
+    cursor: pointer;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+    transition: color 0.2s ease;
 }
 
 .fav-icon.active {
-    color: gold;
-    text-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
+    color: #ffc107;
+    text-shadow: 0 0 8px rgba(255, 193, 7, 0.8), 
+                 0 0 15px rgba(255, 193, 7, 0.5);
 }
 
-/*    <!-- Biar ada space -->    */
-
-.kosong {
-    width: 100%;
-    height: 100px; 
+.fav-icon:hover {
+    color: #ffeb3b;
 }
 
-/*    <!-- Papua -->    */
-
-.papua {
-    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), 
-                url("../images/backgroundmaluku.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 150vh;
-    height: auto;
-    background-attachment: fixed;
-    box-sizing: border-box;
-    padding-bottom: 5rem;
+.ketgambar .deskripsi-singkat {
+    max-height: 3.8em;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
 }
 
-.isipapua {
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
+.ketgambar .deskripsi-singkat.aktif {
+    max-height: 500px;
 }
 
-.subplotpapua {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 3rem;
-    margin-bottom: 2rem;
-}
-
-.tulisanpapua h1 {
-    margin: 0;
-    color: white;
-    text-shadow: 0 0 10px #c74949;
-}
-
-/*    <!-- Sulawesi -->    */
-
-.sulawesi {
-    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), 
-                url("../images/backgroundmaluku.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 150vh;
-    height: auto;
-    background-attachment: fixed;
-    box-sizing: border-box;
-    padding-bottom: 5rem;
-}
-
-.isisulawesi {
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-}
-
-.subplotsulawesi {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 3rem;
-    margin-bottom: 2rem;
-}
-
-.tulisansulawesi h1 {
-    margin: 0;
-    color: white;
-    text-shadow: 0 0 10px #c74949;
-}
-
-/*    <!-- Nusa Tenggara -->    */
-
-.nusatenggara {
-    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), 
-                url("../images/backgroundmaluku.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 150vh;
-    height: auto;
-    background-attachment: fixed;
-    box-sizing: border-box;
-    padding-bottom: 5rem;
-}
-
-.isinusatenggara {
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-}
-
-.subplotnusatenggara {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 3rem;
-    margin-bottom: 2rem;
-}
-
-.tulisannusatenggara h1 {
-    margin: 0;
-    color: white;
-    text-shadow: 0 0 10px #c74949;
+.toggle-btn {
+    display: block;
+    background: none;
+    border: none;
+    color: #b73e3e;
+    cursor: pointer;
+    margin-top: 5px;
+    font-size: 0.9rem;
+    text-align: left;
+    padding: 0;
+    font-weight: bold;
 }
 
 /*    <!-- Hubungi Kami -->    */
