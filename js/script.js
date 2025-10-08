@@ -18,12 +18,6 @@ function goToFavorites() {
     window.location.href = "../html/favorit.html";
 }
 
-function handleToggleFavorite(el, alatData) {
-    const isNowFavorite = toggleFavorite(alatData);
-    el.classList.toggle('active', isNowFavorite);
-    el.textContent = isNowFavorite ? '★' : '☆';
-}
-
 // -------------------- DYNAMIC REGION RENDERING --------------------
 
 function renderAlatMusik(region, containerId) {

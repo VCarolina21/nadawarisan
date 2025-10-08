@@ -1,4 +1,3 @@
-// Menggunakan FAVORITES_KEY yang sudah didefinisikan di alatmusik.js
 const FAVORITES_KEY = 'favorites'; 
 
 function renderFavorites() {
