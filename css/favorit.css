@@ -4,7 +4,6 @@ body {
     background-size: auto;
     background-position: center;
     background-repeat: no-repeat;
-    height: 150vh;
     height: auto;
     background-attachment: fixed;
     box-sizing: border-box;
@@ -12,7 +11,7 @@ body {
 }
 
 .favorit-result-container { 
-    max-width: 1000px;
+    max-width: 1000px; 
     margin: 20px auto; 
     padding: 0 20px; 
 }
@@ -33,30 +32,24 @@ body {
     font-size: 1.5rem;
 }
 
-.pesan-kosong {
-    display: none;
-    text-align: center;
-    margin-top: 40px;
-}
-
 .favorit-container {
-    max-width: 1200px;
-    margin: 20px auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    max-width: 1000px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
 }
 
 .kartu-favorit { 
-    display: block;
+    display: flex;
+    margin-bottom: 30px; 
     background: white; 
-    padding: 15px; 
+    padding: 20px; 
     border-radius: 8px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .kartu-favorit img { 
     width: 250px; 
+    min-width: 250px;
     height: 150px; 
     object-fit: cover; 
     border-radius: 4px; 
@@ -64,8 +57,7 @@ body {
 }
 
 .info-favorit {
-    display: flex;
-    flex-direction: column;
+    flex-grow: 1;
 }
 
 .info-favorit h3 { 
@@ -74,24 +66,31 @@ body {
 }
 
 .info-favorit h4 {
-    margin: 0 0 10px 0;
-    font-size: 0.9rem;
-    font-style: italic;
-    color: #555;
+    margin: 5px 0;
 }
 
-.info-favorit p {
-    margin: 3px 0; 
+.info-favorit p { 
+    margin: 3px 0 15px 0; 
     line-height: 1.6; 
 }
 
-#pesan-kosong {
-    font-size: 1.5rem;
+.btn-unfavorite {
+    background-color: #c74949;
     color: white;
-    text-align: center;
-    padding: 50px;
-    background-color: transparent;
-    border-radius: 0;
-    margin-top: 50px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.9);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-unfavorite:hover {
+    background-color: #a03c3c;
+}
+
+.no-results { 
+    text-align: center; 
+    margin-top: 50px; 
+    color: white;
+    font-size: 1.2rem;
 }

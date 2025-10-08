@@ -39,7 +39,9 @@ function renderAlatMusik(region, containerId) {
 
     filteredAlatMusik.forEach(alat => {
         const deskripsiPenuh = alat.deskripsi;
-        const deskripsiSingkat = deskripsiPenuh.substring(0, 150) + '...';
+        const deskripsiSingkat = alat.deskripsi.length > 150 
+                                  ? alat.deskripsi.substring(0, 150) + '...'
+                                  : alat.deskripsi;
 
         const card = document.createElement('div');
         card.className = 'bingkaigambar';

@@ -1,17 +1,17 @@
 const FAVORITES_KEY = 'favorites'; 
 
-console.log('Favorites loaded!')
+console.log('Favorites loaded!');
 
 function renderFavorites() {
     const container = document.getElementById('favorit-container');
     const pesanKosong = document.getElementById('pesan-kosong');
     
+    const favorites = JSON.parse(localStorage.getItem(FAVORITES_KEY)) || [];
+
     if (!container || !pesanKosong) {
         console.warn('Elemen container favorit tidak ditemukan di halaman.');
         return;
     }
-    
-    const favorites = JSON.parse(localStorage.getItem(FAVORITES_KEY)) || [];
     
     const validFavorites = favorites.filter(alat => alat.uniqueKey && alat.nama && alat.gambar);
 
@@ -22,14 +22,11 @@ function renderFavorites() {
         container.style.display = 'none';
     } else {
         pesanKosong.style.display = 'none';
-
-        container.style.display = 'flex'; 
+        
+        container.style.display = 'block'; 
 
         validFavorites.forEach(alat => {
-            const deskripsiSingkat = alat.deskripsi.length > 200 
-                                     ? alat.deskripsi.substring(0, 200) + '...'
-                                     : alat.deskripsi;
-                                     
+
             const kartuDiv = document.createElement('div');
             kartuDiv.className = 'kartu-favorit';
 
@@ -38,8 +35,7 @@ function renderFavorites() {
                 <div class="info-favorit">
                     <h3>${alat.nama}</h3>
                     <h4>Asal: ${alat.asal}</h4>
-                    <p>${deskripsiSingkat}</p>
-                    <button class="btn-unfavorite" data-nama="${alat.nama}" data-asal="${alat.asal}">Hapus dari Favorit</button> 
+                    <p>${alat.deskripsi}</p> <button class="btn-unfavorite" data-nama="${alat.nama}" data-asal="${alat.asal}">Hapus dari Favorit</button> 
                 </div>
             `;
             container.appendChild(kartuDiv);
