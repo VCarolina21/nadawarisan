@@ -1,6 +1,4 @@
-const alatmusik =
-
-[
+const alatmusik = [
       {
         nama: "Totobuang",
         asal: "Maluku Tengah",

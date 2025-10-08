@@ -61,18 +61,3 @@ if (tombolKeAtas) {
     });
   });
 }
-
-// -------------------- FORM HUBUNGI --------------------
-
-const box = document.querySelector(".box");
-const form = document.querySelector(".form-hubungi");
-
-if (box && form) {
-  box.addEventListener("click", () => {
-    box.classList.toggle("active");
-  });
-
-  form.addEventListener("click", (e) => {
-    e.stopPropagation();
-  });
-}
