@@ -346,7 +346,7 @@ const alatmusik = [
       {
         nama: "Dimba Nggowuna",
         asal: "Sulawesi Tenggara",
-        gambar: "images/dimba.jpg",
+        gambar: "../images/dimba.jpg",
         deskripsi:
           "Terbuat dari bambu dan rotan, dimainkan oleh perempuan sebagai hiburan setelah menenun. Cara mainnya dipukul."
       },

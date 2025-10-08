@@ -20,13 +20,17 @@ function goToFavorites() {
 
 // -------------------- DYNAMIC REGION RENDERING --------------------
 
-function renderAlatMusik(region, containerId) {
+// [PERUBAHAN]: Menambahkan parameter sortType untuk pengurutan
+function renderAlatMusik(region, containerId, sortType = 'default') {
     const container = document.getElementById(containerId);
     if (!container) return;
+
+    // [PENTING]: Bersihkan kontainer sebelum render ulang (diperlukan untuk sorting)
+    container.innerHTML = ''; 
     
     if (typeof alatmusik === 'undefined' || !Array.isArray(alatmusik)) return;
 
-    const filteredAlatMusik = alatmusik.filter(alat => {
+    let filteredAlatMusik = alatmusik.filter(alat => {
         const asalLowerCase = alat.asal.toLowerCase();
         const regionLowerCase = region.toLowerCase();
 
@@ -36,12 +40,27 @@ function renderAlatMusik(region, containerId) {
         
         return asalLowerCase.includes(regionLowerCase);
     });
+    
+    // [LOGIKA FILTER ABJAD TAMBAHAN]
+    if (filteredAlatMusik.length > 1) {
+      switch (sortType) {
+        case 'nama-asc':
+          filteredAlatMusik.sort((a, b) => a.nama.localeCompare(b.nama)); // A-Z
+          break;
+        case 'nama-desc':
+          filteredAlatMusik.sort((a, b) => b.nama.localeCompare(a.nama)); // Z-A
+          break;
+        case 'default':
+        default:
+          break;
+      }
+    }
 
     filteredAlatMusik.forEach(alat => {
         const deskripsiPenuh = alat.deskripsi;
         const deskripsiSingkat = alat.deskripsi.length > 150 
-                                  ? alat.deskripsi.substring(0, 150) + '...'
-                                  : alat.deskripsi;
+                                     ? alat.deskripsi.substring(0, 150) + '...'
+                                     : alat.deskripsi;
 
         const card = document.createElement('div');
         card.className = 'bingkaigambar';
@@ -59,7 +78,8 @@ function renderAlatMusik(region, containerId) {
         `;
         
         const star = document.createElement('div');
-        const isFav = isFavorite(alat);
+        // Asumsi: isFavorite() dan handleToggleFavorite() didefinisikan di tempat lain
+        const isFav = isFavorite(alat); 
         
         star.className = isFav ? 'fav-icon active' : 'fav-icon';
         star.textContent = isFav ? '★' : '☆';
@@ -96,23 +116,38 @@ function renderAlatMusik(region, containerId) {
     });
 }
 
-// -------------------- DOMContentLoaded MAIN LOGIC --------------------
+// -------------------- SORT HELPER FUNCTION (TAMBAHAN BARU) --------------------
+
+// Fungsi ini memanggil renderAlatMusik untuk setiap region dengan tipe pengurutan yang dipilih.
+function applySort(sortType) {
+    renderAlatMusik('Maluku', 'daftar-maluku', sortType);
+    renderAlatMusik('Papua', 'daftar-papua', sortType);
+    renderAlatMusik('NT', 'daftar-nt', sortType); 
+    renderAlatMusik('Sulawesi', 'daftar-sulawesi', sortType);
+}
+
+// -------------------- DOMContentLoaded MAIN LOGIC (FINAL & CORRECT) --------------------
 
 document.addEventListener('DOMContentLoaded', () => {
-    renderAlatMusik('Maluku', 'daftar-maluku');
-    renderAlatMusik('Papua', 'daftar-papua');
-    renderAlatMusik('NT', 'daftar-nt'); 
-    renderAlatMusik('Sulawesi', 'daftar-sulawesi');
-});
+    // 1. Panggil render awal (dengan urutan default)
+    applySort('default'); 
 
-// -------------------- TOMBOL KE ATAS --------------------
-
-const tombolKeAtas = document.getElementById("keatas");
-if (tombolKeAtas) {
-    tombolKeAtas.addEventListener("click", function () {
-        document.getElementById("beranda").scrollIntoView({
-            behavior: "smooth",
-            block: "start",
+    // 2. Event Listener untuk dropdown sort di index.html (TAMBAHAN FILTER)
+    const sortSelectHome = document.getElementById('sort-select-home');
+    if (sortSelectHome) {
+        sortSelectHome.addEventListener('change', (e) => {
+            applySort(e.target.value); // Menerapkan pengurutan saat pilihan berubah
         });
-    });
-}
+    }
+
+    // -------------------- TOMBOL KE ATAS --------------------
+    const tombolKeAtas = document.getElementById("keatas");
+    if (tombolKeAtas) {
+        tombolKeAtas.addEventListener("click", function () {
+            document.getElementById("beranda").scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            });
+        });
+    }
+});
