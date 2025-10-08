@@ -97,11 +97,15 @@
                 </p>
 
                 <div class="tombolsearch">
-                    <input type="text" placeholder="Cari Alat Musik..." id="searchInput">
+                    <form action="../html/search.html" method="GET" id="searchForm" class="search-container">
+                        <input type="text" id="searchInput" name="query" placeholder="Cari Alat Musik..." autocomplete="off">
+                        
+                        <button type="submit" id="searchButton">🔍</button>
+                        
+                        <div id="searchResults" class="search-results"></div> 
+                    </form>
 
-                        <button id="searchBtn">🔍</button>
-                        <button id="favBtn" onclick="goToFavorites()">⭐</button>
-
+                    <button id="favBtn" onclick="goToFavorites()">⭐</button> 
                 </div>
 
             </div>

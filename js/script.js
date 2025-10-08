@@ -12,52 +12,10 @@ window.addEventListener("scroll", () => {
   lastScrollY = window.scrollY;
 });
 
-// -------------------- SEARCH FUNCTION --------------------
-
-const searchInput = document.getElementById("searchInput");
-const searchResults = document.getElementById("searchResults");
-
-searchInput.addEventListener("input", function () {
-  const query = this.value.toLowerCase();
-  searchResults.innerHTML = "";
-
-  if (query === "") {
-    searchResults.style.display = "none";
-    return;
-  }
-
-  const filtered = alatmusik.filter(item =>
-    item.nama.toLowerCase().includes(query) ||
-    item.asal.toLowerCase().includes(query)
-  );
-
-  if (filtered.length === 0) {
-    searchResults.innerHTML = "<div>Tidak ditemukan.</div>";
-  } else {
-    filtered.forEach(item => {
-      const div = document.createElement("div");
-      div.textContent = `${item.nama} (${item.asal})`;
-      div.onclick = () => {
-        alert(`${item.nama}\n\n${item.deskripsi}`);
-        searchResults.style.display = "none";
-      };
-      searchResults.appendChild(div);
-    });
-  }
-
-  searchResults.style.display = "block";
-});
-
-document.addEventListener("click", (e) => {
-  if (!searchResults.contains(e.target) && e.target !== searchInput) {
-    searchResults.style.display = "none";
-  }
-});
-
 // -------------------- FAVOURITE FUNCTION --------------------
 
 function goToFavorites() {
-  window.location.href = "favorit.html";
+  window.location.href = "../html/favorit.html";
 }
 
 function toggleFavorite(el, alat) {

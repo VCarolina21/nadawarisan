@@ -185,7 +185,6 @@ section#beranda{
     font-size: 1rem;
     font-weight: 600;
 }
-
 /*    <!-- Tentang Kami -->    */
 
 .tentangkami {
@@ -238,21 +237,27 @@ section#beranda{
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 0rem;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
     gap: 0.5rem;
 }
 
-.tombolsearch input {
+.tombolsearch input#searchInput {
     padding: 0.7rem 1rem;
     border-radius: 8px;
     border: black 2px solid;
     outline: none;
-    width: 30%;
+    width: 100%;
     font-size: 1rem;
+    box-sizing: border-box; 
 }
 
 .tombolsearch button {
     padding: 0.7rem 1.2rem;
-    border: none;
     border-radius: 8px;
     background: white;
     border: black 2px solid;
@@ -262,7 +267,8 @@ section#beranda{
 }
 
 .tombolsearch button:hover {
-  background: #c74949;
+    background: #c74949;
+    border-color: #c74949;
 }
 
 /*    <!-- Maluku -->    */
@@ -556,31 +562,6 @@ section#beranda{
     align-items: center;
 }
 
-.box::before {
-    content: "";
-    position: absolute;
-    inset: -2px;
-    border-radius: 20px;
-    background: linear-gradient(90deg, #c74949, white, #c74949);
-    animation: rotateBorder 5s linear infinite;
-    z-index: -1;
-}
-
-.box::after {
-    content: "";
-    position: absolute;
-    inset: 4px;
-    background: rgba(20,20,20,0.9);
-    border-radius: 15px;
-    border: 1px solid #25252b;
-    z-index: -1;
-}
-
-@keyframes rotateBorder {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
 .form-hubungi {
     opacity: 0;
     pointer-events: none;
@@ -601,29 +582,6 @@ section#beranda{
     border: 1px solid black;
     outline: none;
     font-size: 0.9rem;
-}
-
-.form-hubungi button {
-    background: #c74949;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    border: none;
-}
-.form-hubungi button:hover {
-    background: black;
-    color: white;
-}
-
-.box.active {
-    width: 400px;
-    height: 450px;
-    cursor: default;
-}
-
-.box.active .form-hubungi {
-    opacity: 1;
     pointer-events: auto;
 }
 
