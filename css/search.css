@@ -45,8 +45,11 @@ body {
 }
 
 .no-results { 
-    text-align: center; 
-    margin-top: 50px; 
+    margin: 3px 0 15px 0; 
+    line-height: 1.6; 
+    font-size: 1.60rem;
+    text-align: center;
+    color: white;
 }
 
 .btn-kembali-search { 
