@@ -1,0 +1,69 @@
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), 
+                url("images/backgroundtentangkami.png");
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 2rem;
+    backdrop-filter: brightness(0.9);
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    margin-bottom: 2rem;
+}
+
+.daftar-favorit {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.fav-item {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  width: 180px;
+  text-align: center;
+  padding: 1rem;
+  transition: 0.3s;
+}
+
+.fav-item:hover {
+  transform: scale(1.05);
+}
+
+.fav-item img {
+  width: 100%;
+  border-radius: 10px;
+  height: 120px;
+  object-fit: cover;
+}
+
+.fav-item h3 {
+  color: #222;
+  font-size: 1.1rem;
+  margin-top: 0.6rem;
+}
+
+.btn-kembali {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.6rem 1.5rem;
+  border: none;
+  background: #c74949;
+  color: white;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-kembali:hover {
+  background: #a93737;
+}
