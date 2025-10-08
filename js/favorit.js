@@ -6,7 +6,7 @@ function renderFavorites() {
     const container = document.getElementById('favorit-container');
     const pesanKosong = document.getElementById('pesan-kosong');
     
-
+    // Pastikan kunci yang digunakan sama dengan yang di alatmusik.js
     const favorites = JSON.parse(localStorage.getItem(FAVORITES_KEY)) || [];
 
     if (!container || !pesanKosong) {
@@ -15,6 +15,7 @@ function renderFavorites() {
     }
     
     const validFavorites = favorites.filter(alat => alat.uniqueKey && alat.nama && alat.gambar);
+    // Simpan kembali data yang sudah divalidasi
     localStorage.setItem(FAVORITES_KEY, JSON.stringify(validFavorites));
 
     container.innerHTML = ''; 
@@ -47,6 +48,7 @@ function renderFavorites() {
             container.appendChild(kartuDiv);
         });
         
+        // Atur event listener untuk ikon bintang
         setupFavoriteIcons(container);
     }
 }
@@ -54,15 +56,22 @@ function renderFavorites() {
 function setupFavoriteIcons(container) {
     container.querySelectorAll('.fav-icon-favorit').forEach(starIcon => {
         starIcon.addEventListener('click', (e) => {
+            // Ambil uniqueKey dari atribut data-key pada elemen bintang
             const keyToRemove = e.target.dataset.key;
             
-            toggleFavoriteByKey(keyToRemove); 
+            // PANGGIL FUNGSI UNTUK MENGHAPUS DARI LOCAL STORAGE
+            if (keyToRemove && typeof toggleFavoriteByKey === 'function') {
+                 // Fungsi ini harus tersedia saat di-klik (dari alatmusik.js)
+                 toggleFavoriteByKey(keyToRemove); 
+            }
             
+            // Render ulang untuk memperbarui tampilan
             renderFavorites(); 
         });
     });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    // Dipanggil saat DOM siap, setelah alatmusik.js dimuat
     renderFavorites();
 });

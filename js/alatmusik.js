@@ -563,3 +563,18 @@ function handleToggleFavorite(el, alatData) {
     el.textContent = isNowFavorite ? '★' : '☆';
     el.classList.toggle('active', isNowFavorite);
 }
+
+function toggleFavoriteByKey(uniqueKey) {
+    if (!uniqueKey) return;
+    const FAVORITES_KEY = 'favorites';
+    let favorites = JSON.parse(localStorage.getItem(FAVORITES_KEY)) || [];
+    
+    const index = favorites.findIndex(fav => fav.uniqueKey === uniqueKey);
+
+    if (index > -1) {
+        favorites.splice(index, 1);
+        localStorage.setItem(FAVORITES_KEY, JSON.stringify(favorites));
+        return true; 
+    }
+    return false;
+}
