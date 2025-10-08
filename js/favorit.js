@@ -6,14 +6,16 @@ function renderFavorites() {
     const container = document.getElementById('favorit-container');
     const pesanKosong = document.getElementById('pesan-kosong');
     
+
     const favorites = JSON.parse(localStorage.getItem(FAVORITES_KEY)) || [];
 
     if (!container || !pesanKosong) {
-        console.warn('Elemen container favorit tidak ditemukan di halaman.');
+        console.warn('Elemen container atau pesan-kosong favorit tidak ditemukan di halaman.');
         return;
     }
     
     const validFavorites = favorites.filter(alat => alat.uniqueKey && alat.nama && alat.gambar);
+    localStorage.setItem(FAVORITES_KEY, JSON.stringify(validFavorites));
 
     container.innerHTML = ''; 
 
@@ -23,37 +25,38 @@ function renderFavorites() {
     } else {
         pesanKosong.style.display = 'none';
         
-        container.style.display = 'block'; 
+        container.style.display = 'grid'; 
 
         validFavorites.forEach(alat => {
-
+            const deskripsiTampilan = alat.deskripsi || "Deskripsi tidak tersedia.";
+                                     
             const kartuDiv = document.createElement('div');
             kartuDiv.className = 'kartu-favorit';
 
             kartuDiv.innerHTML = `
                 <img src="${alat.gambar}" alt="${alat.nama}">
+                
                 <div class="info-favorit">
                     <h3>${alat.nama}</h3>
                     <h4>Asal: ${alat.asal}</h4>
-                    <p>${alat.deskripsi}</p> <button class="btn-unfavorite" data-nama="${alat.nama}" data-asal="${alat.asal}">Hapus dari Favorit</button> 
+                    <p>${deskripsiTampilan}</p>
                 </div>
+                
+                <div class="fav-icon-favorit active" data-key="${alat.uniqueKey}">★</div> 
             `;
             container.appendChild(kartuDiv);
         });
         
-        setupUnfavoriteButtons(container);
+        setupFavoriteIcons(container);
     }
 }
 
-function setupUnfavoriteButtons(container) {
-    container.querySelectorAll('.btn-unfavorite').forEach(button => {
-        button.addEventListener('click', (e) => {
-            const namaToRemove = e.target.dataset.nama;
-            const asalToRemove = e.target.dataset.asal;
+function setupFavoriteIcons(container) {
+    container.querySelectorAll('.fav-icon-favorit').forEach(starIcon => {
+        starIcon.addEventListener('click', (e) => {
+            const keyToRemove = e.target.dataset.key;
             
-            const alatToRemove = { nama: namaToRemove, asal: asalToRemove };
-            
-            toggleFavorite(alatToRemove); 
+            toggleFavoriteByKey(keyToRemove); 
             
             renderFavorites(); 
         });

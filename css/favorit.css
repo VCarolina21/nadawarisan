@@ -1,10 +1,10 @@
 body {
     background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), 
                 url("../images/backgroundtentangkami.png");
-    background-size: auto;
+    background-size: cover; 
     background-position: center;
     background-repeat: no-repeat;
-    height: auto;
+    min-height: 100vh;
     background-attachment: fixed;
     box-sizing: border-box;
     padding-bottom: 5rem;
@@ -30,67 +30,92 @@ body {
     color: white; 
     text-decoration: none;
     font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.btn-kembali-favorit:hover {
+    color: #c74949;
 }
 
 .favorit-container {
-    max-width: 1000px; 
-    margin: 0 auto; 
-    padding: 0 20px; 
+    max-width: 1200px;
+    margin: 20px auto;
+    display: grid; 
+    gap: 25px;
+    padding: 0 20px;
 }
 
 .kartu-favorit { 
+    position: relative;
     display: flex;
-    margin-bottom: 30px; 
     background: white; 
     padding: 20px; 
-    border-radius: 8px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 12px; 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); 
+    overflow: hidden; 
+    transition: transform 0.3s ease, box-shadow 0.3s;
+    height: auto;
+    gap: 30px   ;
+}
+
+.kartu-favorit:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .kartu-favorit img { 
     width: 250px; 
-    min-width: 250px;
     height: 150px; 
     object-fit: cover; 
     border-radius: 4px; 
-    margin-right: 20px; 
+    margin-bottom: 20px; 
 }
 
 .info-favorit {
-    flex-grow: 1;
+    padding-bottom: 5px; 
 }
 
 .info-favorit h3 { 
     color: #c74949; 
     margin-top: 0;
+    font-size: 1.4rem; 
+    margin-bottom: 20px;
 }
 
 .info-favorit h4 {
-    margin: 5px 0;
+    margin: 5px 0 10px 0; 
+    font-size: 1rem;
+    color: #666;
 }
 
 .info-favorit p { 
     margin: 3px 0 15px 0; 
     line-height: 1.6; 
+    font-size: 0.95rem;
 }
 
-.btn-unfavorite {
-    background-color: #c74949;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
+.fav-icon-favorit {
+    position: absolute; 
+    top: 20px;
+    right: 20px;
+    font-size: 2.5rem; 
     cursor: pointer;
-    transition: background-color 0.3s;
+    color: #c74949; 
+    text-shadow: 0 0 5px rgba(0,0,0,0.3);
+    line-height: 1; 
+    z-index: 10;
+    transition: transform 0.2s, color 0.2s;
 }
 
-.btn-unfavorite:hover {
-    background-color: #a03c3c;
+.fav-icon-favorit:hover {
+    transform: scale(1.1);
+    color: #ff0000; 
 }
 
-.no-results { 
+#pesan-kosong { 
     text-align: center; 
     margin-top: 50px; 
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    padding: 0 20px;
 }

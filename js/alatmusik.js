@@ -346,7 +346,7 @@ const alatmusik = [
       {
         nama: "Dimba Nggowuna",
         asal: "Sulawesi Tenggara",
-        gambar: "../images/dimba.jpg",
+        gambar: "images/dimba.jpg",
         deskripsi:
           "Terbuat dari bambu dan rotan, dimainkan oleh perempuan sebagai hiburan setelah menenun. Cara mainnya dipukul."
       },
@@ -554,12 +554,16 @@ function toggleFavorite(alat) {
 function isFavorite(alat) {
     const uniqueKey = generateUniqueKey(alat);
     let favorites = JSON.parse(localStorage.getItem(FAVORITES_KEY)) || [];
+    // Cek apakah ada alat dengan uniqueKey yang sama
     return favorites.some(fav => fav.uniqueKey === uniqueKey);
 }
 
+// 🎯 FUNGSI YANG HILANG/BELUM LENGKAP #2: handleToggleFavorite
 function handleToggleFavorite(el, alatData) {
+    // 1. Panggil fungsi inti untuk menyimpan/menghapus data
     const isNowFavorite = toggleFavorite(alatData); 
     
+    // 2. Perbarui tampilan ikon bintang
     el.textContent = isNowFavorite ? '★' : '☆';
     el.classList.toggle('active', isNowFavorite);
 }

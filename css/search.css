@@ -36,12 +36,12 @@ body {
 
 .result-info h2 { 
     color: #c74949; 
-    margin-top: 20px; 
+    margin-top: 10px; 
 }
 
 .result-info p { 
     margin: 3px 0; 
-    line-height: 1.6; 
+    line-height: 1.6ram; 
 }
 
 .no-results { 

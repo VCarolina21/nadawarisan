@@ -20,12 +20,10 @@ function goToFavorites() {
 
 // -------------------- DYNAMIC REGION RENDERING --------------------
 
-// [PERUBAHAN]: Menambahkan parameter sortType untuk pengurutan
 function renderAlatMusik(region, containerId, sortType = 'default') {
     const container = document.getElementById(containerId);
     if (!container) return;
 
-    // [PENTING]: Bersihkan kontainer sebelum render ulang (diperlukan untuk sorting)
     container.innerHTML = ''; 
     
     if (typeof alatmusik === 'undefined' || !Array.isArray(alatmusik)) return;
@@ -41,7 +39,6 @@ function renderAlatMusik(region, containerId, sortType = 'default') {
         return asalLowerCase.includes(regionLowerCase);
     });
     
-    // [LOGIKA FILTER ABJAD TAMBAHAN]
     if (filteredAlatMusik.length > 1) {
       switch (sortType) {
         case 'nama-asc':
@@ -78,7 +75,6 @@ function renderAlatMusik(region, containerId, sortType = 'default') {
         `;
         
         const star = document.createElement('div');
-        // Asumsi: isFavorite() dan handleToggleFavorite() didefinisikan di tempat lain
         const isFav = isFavorite(alat); 
         
         star.className = isFav ? 'fav-icon active' : 'fav-icon';
@@ -118,7 +114,6 @@ function renderAlatMusik(region, containerId, sortType = 'default') {
 
 // -------------------- SORT HELPER FUNCTION (TAMBAHAN BARU) --------------------
 
-// Fungsi ini memanggil renderAlatMusik untuk setiap region dengan tipe pengurutan yang dipilih.
 function applySort(sortType) {
     renderAlatMusik('Maluku', 'daftar-maluku', sortType);
     renderAlatMusik('Papua', 'daftar-papua', sortType);
@@ -129,18 +124,17 @@ function applySort(sortType) {
 // -------------------- DOMContentLoaded MAIN LOGIC (FINAL & CORRECT) --------------------
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Panggil render awal (dengan urutan default)
     applySort('default'); 
 
-    // 2. Event Listener untuk dropdown sort di index.html (TAMBAHAN FILTER)
     const sortSelectHome = document.getElementById('sort-select-home');
     if (sortSelectHome) {
         sortSelectHome.addEventListener('change', (e) => {
-            applySort(e.target.value); // Menerapkan pengurutan saat pilihan berubah
+            applySort(e.target.value);
         });
     }
 
-    // -------------------- TOMBOL KE ATAS --------------------
+// -------------------- TOMBOL KE ATAS --------------------
+
     const tombolKeAtas = document.getElementById("keatas");
     if (tombolKeAtas) {
         tombolKeAtas.addEventListener("click", function () {
