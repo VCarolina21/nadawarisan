@@ -549,24 +549,18 @@ section#beranda{
 }
 
 .box {
-    position: relative;
-    width: 280px;
-    height: 80px;
     margin: 0 auto;
-    border-radius: 20px;
-    cursor: pointer;
-    overflow: hidden;
-    transition: all 0.6s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    max-width: 500px;
+    border-radius: 12px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .form-hubungi {
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease;
-    width: 90%;
+    opacity: 1;
+    pointer-events: auto;
+    width: 100%;
     text-align: center;
     color: black;
 }
@@ -577,12 +571,26 @@ section#beranda{
     display: block;
     width: 100%;
     margin: 10px 0;
-    padding: 10px;
+    padding: 12px;
     border-radius: 8px;
-    border: 1px solid black;
+    border: 2px solid #ddd;
     outline: none;
-    font-size: 0.9rem;
-    pointer-events: auto;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.form-hubungi button[type="submit"] {
+    background: #c74949;
+    color: white;
+    border: 2px solid #c74949;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.form-hubungi button[type="submit"]:hover {
+    background: #a83d3d;
+    border-color: #a83d3d;
 }
 
 /*    <!-- Footer Bawah -->    */
