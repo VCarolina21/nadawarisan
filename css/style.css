@@ -591,3 +591,229 @@ section#beranda{
     padding: 0.5rem 0;
     color: white;
 }
+
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 15px 3%;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .links {
+        gap: 1.5rem;
+    }
+
+    section#beranda {
+        padding: 5rem 5%; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .berandatext {
+        position: relative; 
+        top: 0; 
+        left: 0;
+        text-align: center;
+        margin-top: 150px; 
+        max-width: 90%;
+    }
+
+    .berandatext h1 {
+        font-size: 4rem;
+    }
+
+    .kananbawah {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px;
+        justify-items: center;
+        margin-top: 80px; 
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .fotokananbawah {
+        width: 100%;
+        text-align: center;
+    }
+
+    .fotokananbawah img {
+        width: 100%;
+        height: 220px; 
+        object-fit: cover;
+    }
+
+
+    .isitentangkami {
+        padding: 0 20px; 
+    }
+    .tombolsearch {
+        flex-direction: column;
+        gap: 15px;
+        width: 80%;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .search-container {
+        width: 100%; 
+        flex-wrap: nowrap;
+    }
+
+    .daftaralatmusik {
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 25px;
+    }
+
+    .footerbawah {
+        flex-direction: column; 
+        align-items: center;
+        text-align: center;
+    }
+    .footerkiri, .footerkanan {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px; 
+    }
+    .footerbagiankiri {
+        justify-content: center;
+    }
+    .footerkanan ul {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 2rem;
+        background: rgba(0,0,0,0.8);
+    }
+    .links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem 1rem;
+    }
+    .logo img {
+        width: 70px;
+        height: 70px;
+    }
+    .links a {
+        font-size: 0.9rem;
+    }
+
+    .berandatext {
+        margin-top: 180px; 
+    }
+    
+    .berandatext h1 {
+        font-size: 2.5rem;
+    }
+    .berandatext h5 {
+        font-size: 16px;
+        letter-spacing: 5px;
+    }
+
+    .kananbawah {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 10px;
+        width: 90%;
+        max-width: 350px;
+    }
+    
+    .fotokananbawah img {
+        height: 140px; 
+    }
+
+    .tombolsearch {
+        flex-direction: column;
+        gap: 15px;
+        width: 90%;
+        max-width: 300px; 
+        padding: 0 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .search-container {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .daftaralatmusik {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px;
+    }
+    
+    .footerbawah {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footerkiri, .footerkanan {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .footerbagiankiri {
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+    .footerkanan {
+        margin-top: 0; 
+    }
+    .footerkanan ul {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .berandatext {
+        margin-top: 120px; 
+    }
+    
+    .berandatext h1 {
+        font-size: 2rem;
+    }
+    
+    .kananbawah {
+        gap: 5px;
+        width: 95%;
+    }
+    .fotokananbawah img {
+        height: 100px; 
+    }
+    
+    .fotokananbawah p {
+        font-size: 0.75rem;
+    }
+
+    .tombolsearch {
+        width: 95%;
+    }
+
+    .daftaralatmusik {
+        grid-template-columns: 1fr; 
+        gap: 15px;
+    }
+    
+    .footerbawah {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footerkiri, .footerkanan {
+        width: 100%;
+        text-align: center;
+    }
+    .footerbagiankiri {
+        justify-content: center;
+    }
+}
